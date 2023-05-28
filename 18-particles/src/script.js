@@ -22,11 +22,21 @@ const textureLoader = new THREE.TextureLoader()
 /**
  * Test cube
  */
-const cube = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial()
-)
-scene.add(cube)
+ //Particles
+ //Geometry
+//  const particlesGeometry = new THREE.SphereGeometry(1,32,32)
+ const particlesGeometry = new THREE.BufferGeometry()
+ const count = 500
+ 
+ //Material
+ const particlesMaterial = new THREE.PointsMaterial({
+    size:0.01,
+    sizeAttenuation:false,
+ })
+
+ //Points
+ const particles = new THREE.Points(particlesGeometry, particlesMaterial)
+ scene.add(particles)
 
 /**
  * Sizes
